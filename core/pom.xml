@@ -25,11 +25,11 @@
 		<resources>
 			<resource>
 				<directory>src</directory>
-				<excludes>
-					<exclude>**/*.java</exclude>
-					<exclude>**/*.class</exclude>
-					<exclude>**/.editorconfig</exclude>
-				</excludes>
+				<includes>
+					<include>**/*.gif</include>
+					<include>**/sun.net.spi.nameservice.NameServiceDescriptor</include>
+					<include>**/*.xsd</include>
+				</includes>
 			</resource>
 		</resources>
 		<plugins>

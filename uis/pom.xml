@@ -15,21 +15,19 @@
         <dependency>
             <groupId>com.biglybt</groupId>
             <artifactId>biglybt-core</artifactId>
+            <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
 
     <build>
-        <!-- TODO shade plugin! (shade core, common cli but not SWT)-->
-        <sourceDirectory>src</sourceDirectory>
-        <finalName>BiglyBT</finalName>
+        <!-- TODO shade plugin! (shade core, log4j, common cli but not SWT)-->
+        <finalName>BiglyBT-core</finalName>
         <resources>
             <resource>
                 <directory>src</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                    <exclude>**/*.class</exclude>
-                    <exclude>**/.editorconfig</exclude>
-                </excludes>
+                <includes>
+                    <include>**/MessagesBundle*.properties</include>
+                </includes>
             </resource>
         </resources>
         <plugins>
@@ -46,14 +44,6 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
                     <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <mainClass>com.biglybt.ui.Main</mainClass>
-                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                        </manifest>
-                        <manifestEntries>
-                            <Class-Path>. swt.jar commons-cli.jar</Class-Path>
-                        </manifestEntries>
                     </archive>
                 </configuration>
             </plugin>
@@ -73,21 +63,40 @@
                                 <excludes>
                                     <exclude>org.eclipse.swt:org.eclipse.swt.win32.win32.x86</exclude>
                                     <exclude>org.eclipse.swt:org.eclipse.swt.cocoa.macosx.x86_64</exclude>
-                                    <exclude>org.eclipse.swt:org.eclipse.swt.gtk.linux.x86_64</exclude>
-                                    <exclude>commons-cli:commons-cli</exclude>
+                                    <exclude>log4j:log4j</exclude>
                                 </excludes>
                             </artifactSet>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/maven/**</exclude>
+                                        <exclude>META-INF/*</exclude>
+                                    </excludes>
+                                </filter>
+                                <filter>
+                                    <artifact>com.biglybt:biglybt-core</artifact>
+                                    <includes>
+                                        <include>**</include>
+                                    </includes>
+                                    <excludes>
+                                        <!-- Ideally, we'd exclude the .java from compiling, but I couldn't get that to work, 
+                                        so instead we exclude the class files from the jar -->
+                                        <exclude>**/com/biglybt/core/util/dns/*</exclude>
+                                        <exclude>**/com/biglybt/core/util/jman/*</exclude>
+                                        <exclude>**/com/biglybt/core/util/internat/*</exclude>
+                                        <exclude>**/com/biglybt/platform/unix/ScriptBeforeStartup*</exclude>
+                                        <exclude>**/com/biglybt/ui/webplugin/WebPluginAccessController*</exclude>
+                                        <exclude>**/com/biglybt/update/CoreUpdateChecker*</exclude>
+                                        <exclude>**/com/biglybt/core/security/impl/SETrustingManager*</exclude>
+                                        <exclude>**/com/biglybt/core/update/impl/ClientRestarterImpl*</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
                             <transformers><!-- to avoid having code in the jar (safety net)-->
                                 <transformer
                                     implementation="org.apache.maven.plugins.shade.resource.DontIncludeResourceTransformer">
                                     <resource>.java</resource>
-                                </transformer>
-                                <transformer
-                                    implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <manifestEntries>
-                                        <Main-Class>com.biglybt.ui.Main</Main-Class>
-                                        <Class-Path>. swt.jar commons-cli.jar</Class-Path>
-                                    </manifestEntries>
                                 </transformer>
                             </transformers>
                         </configuration>
