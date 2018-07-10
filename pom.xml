@@ -5,7 +5,7 @@
 	<artifactId>biglybt-parent</artifactId>
 	<version>2.5.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<name>BiglyBT - Parent</name>
+	<name>BiglyBT - Parent (Android)</name>
 
 	<url>http://www.biglybt.com</url>
 

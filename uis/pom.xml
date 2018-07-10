@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>biglybt-ui</artifactId>
     <packaging>takari-jar</packaging>
-    <name>BiglyBT - UI</name>
+    <name>BiglyBT - UI (Android)</name>
 
     <parent>
         <groupId>com.biglybt</groupId>
@@ -14,14 +14,14 @@
     <dependencies>
         <dependency>
             <groupId>com.biglybt</groupId>
-            <artifactId>biglybt-core</artifactId>
+            <artifactId>biglybt-core-android</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
 
     <build>
         <!-- TODO shade plugin! (shade core, log4j, common cli but not SWT)-->
-        <finalName>BiglyBT-core</finalName>
+        <finalName>BiglyBT-core-android</finalName>
         <resources>
             <resource>
                 <directory>src</directory>
@@ -75,7 +75,7 @@
                                     </excludes>
                                 </filter>
                                 <filter>
-                                    <artifact>com.biglybt:biglybt-core</artifact>
+                                    <artifact>com.biglybt:biglybt-core-android</artifact>
                                     <includes>
                                         <include>**</include>
                                     </includes>
