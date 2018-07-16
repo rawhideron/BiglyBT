@@ -90,6 +90,7 @@
                                         <exclude>**/com/biglybt/update/CoreUpdateChecker*</exclude>
                                         <exclude>**/com/biglybt/core/security/impl/SETrustingManager*</exclude>
                                         <exclude>**/com/biglybt/core/update/impl/ClientRestarterImpl*</exclude>
+                                        <exclude>**/com/biglybt/core/util/spi/AENameServiceDescriptor*</exclude>
                                     </excludes>
                                 </filter>
                             </filters>
