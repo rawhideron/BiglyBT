@@ -120,7 +120,15 @@ UIManagerImpl
 	destroy(
 		final BasicPluginViewModel		model )
 	{
+		/* Map.remove(key, value) minSDK 24
 		view_model_map.remove(getBasicPluginViewModelKey(model), model);
+		 */
+		Object key = getBasicPluginViewModelKey(model);
+		Object value = model;
+		Object curValue = view_model_map.get(key);
+		if (value == curValue || value.equals(curValue)) {
+			view_model_map.remove(key);
+		}
 		fireEvent( pi, UIManagerEvent.ET_PLUGIN_VIEW_MODEL_DESTROYED, model );
 	}
 	
