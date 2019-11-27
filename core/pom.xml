@@ -18,6 +18,10 @@
 			<version>1.4</version>
 		</dependency>
 	</dependencies>
+	<!-- Android Note: MessageTextTest assumes full messagebundle, but we only have the "none" one -->
+	<properties>
+		<maven.test.skip>true</maven.test.skip>
+	</properties>
 
 	<build>
 		<sourceDirectory>src/</sourceDirectory>
