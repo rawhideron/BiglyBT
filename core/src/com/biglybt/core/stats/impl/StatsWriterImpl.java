@@ -26,12 +26,14 @@ package com.biglybt.core.stats.impl;
  */
 
 import java.io.*;
+/* minSDK 26
+>>>>>>> DateTimeFormatter is minSDK 26
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
+*/
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import com.biglybt.core.Core;
 import com.biglybt.core.config.COConfigurationManager;
@@ -532,7 +534,13 @@ StatsWriterImpl
 	formatDate(
 		long	millis )
 	{
+		/* minSDK 26
 		return( DateTimeFormatter.ISO_LOCAL_DATE_TIME.format( new Date( millis ).toInstant().atZone( ZoneId.systemDefault())));
+		 */
+		TimeZone tz = TimeZone.getTimeZone("UTC");
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'"); // Quoted "Z" to indicate UTC, no timezone offset
+		df.setTimeZone(tz);
+		return df.format(new Date( millis ));
 	}
 	
 	protected void
