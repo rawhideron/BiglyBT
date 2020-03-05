@@ -3657,11 +3657,14 @@ public class FileUtil {
 			return super.setWritable(writable, ownerOnly);
 		}
 		
+/* Path is minSDK 26 on Android
 		@Override
 		public Path toPath(){
 			Debug.out( "!" );
 			return( super.toPath());
 		}
+		
+ */
 		
 		@Override
 		public URI toURI(){
