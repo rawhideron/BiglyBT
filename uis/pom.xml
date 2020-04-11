@@ -85,6 +85,7 @@
                                         <exclude>**/com/biglybt/core/util/dns/*</exclude>
                                         <exclude>**/com/biglybt/core/util/jman/*</exclude>
                                         <exclude>**/com/biglybt/core/util/internat/*</exclude>
+                                        <exclude>**/com/biglybt/ui/none/*</exclude>
                                         <exclude>**/com/biglybt/platform/unix/ScriptBeforeStartup*</exclude>
                                         <exclude>**/com/biglybt/ui/webplugin/WebPluginAccessController*</exclude>
                                         <exclude>**/com/biglybt/update/CoreUpdateChecker*</exclude>
