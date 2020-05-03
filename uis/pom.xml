@@ -72,6 +72,7 @@
                                     <excludes>
                                         <exclude>META-INF/maven/**</exclude>
                                         <exclude>META-INF/*</exclude>
+                                        <exclude>**/com/biglybt/ui/none/**</exclude>
                                     </excludes>
                                 </filter>
                                 <filter>
@@ -84,9 +85,10 @@
                                         so instead we exclude the class files from the jar -->
                                         <exclude>**/com/biglybt/core/util/dns/*</exclude>
                                         <exclude>**/com/biglybt/core/util/jman/*</exclude>
-                                        <exclude>**/com/biglybt/core/util/internat/*</exclude>
-                                        <exclude>**/com/biglybt/ui/none/*</exclude>
-                                        <exclude>**/com/biglybt/platform/unix/ScriptBeforeStartup*</exclude>
+                                        <exclude>**/com/biglybt/internat/*</exclude>
+                                        <exclude>**/com/biglybt/platform/unix/**</exclude>
+                                        <exclude>**/com/biglybt/platform/macosx/**</exclude>
+                                        <exclude>**/com/biglybt/platform/win32/**</exclude>
                                         <exclude>**/com/biglybt/ui/webplugin/WebPluginAccessController*</exclude>
                                         <exclude>**/com/biglybt/update/CoreUpdateChecker*</exclude>
                                         <exclude>**/com/biglybt/core/security/impl/SETrustingManager*</exclude>
