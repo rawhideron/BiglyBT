@@ -24,8 +24,10 @@ import java.util.*;
 
 import com.biglybt.activities.ActivitiesEntry;
 import com.biglybt.core.CoreFactory;
+/* Android: No Devices
 import com.biglybt.core.devices.TranscodeFile;
 import com.biglybt.core.devices.TranscodeJob;
+ */
 import com.biglybt.core.disk.DiskManager;
 import com.biglybt.core.disk.impl.DiskManagerImpl;
 import com.biglybt.core.download.DownloadManager;
@@ -67,6 +69,7 @@ public class DataSourceUtils
 				int idx = sc.getFileIndex();
 				DownloadManager dm = sc.getDownloadManager();
 				return dm.getDiskManagerFileInfoSet().getFiles()[idx];
+/* Android: No Devices
 			} else if (ds instanceof TranscodeJob) {
 				TranscodeJob tj = (TranscodeJob) ds;
 				try {
@@ -80,6 +83,7 @@ public class DataSourceUtils
 					return PluginCoreUtils.unwrap(file);
 				} catch (DownloadException e) {
 				}
+ */
 			}
 
 		} catch (Exception e) {
@@ -109,6 +113,7 @@ public class DataSourceUtils
 				return gm.getDownloadManager((TOTorrent) ds);
 			} else if (ds instanceof ISelectedContent) {
 				return getDM(((ISelectedContent)ds).getDownloadManager());
+/* Android: No Devices
 			} else 	if (ds instanceof TranscodeJob) {
 				TranscodeJob tj = (TranscodeJob) ds;
 				try {
@@ -133,6 +138,7 @@ public class DataSourceUtils
 					}
 				} catch (DownloadException e) {
 				}
+ */
 			} else if (ds instanceof Download) {
 				return PluginCoreUtils.unwrap((Download) ds);
 			} else if (ds instanceof byte[]) {
@@ -231,6 +237,7 @@ public class DataSourceUtils
 			return torrent;
 		}
 
+/* Android: No Devices
 		if (ds instanceof TranscodeFile) {
 			TranscodeFile tf = (TranscodeFile) ds;
 			try {
@@ -265,6 +272,7 @@ public class DataSourceUtils
 			} catch (DownloadException e) {
 			}
 		}
+ */
 
 		if (ds instanceof ISelectedContent) {
 			return ((ISelectedContent)ds).getTorrent();
