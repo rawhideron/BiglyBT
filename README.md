@@ -66,4 +66,4 @@ We build our installers using [Install4j, multi-platform installer builder](http
 
 ![Install4j Logo](https://www.ej-technologies.com/images/product_banners/install4j_large.png)
 
-rgoodman
+
