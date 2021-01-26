@@ -65,3 +65,5 @@ Running is only few more steps:
 We build our installers using [Install4j, multi-platform installer builder](https://www.ej-technologies.com/products/install4j/overview.html)
 
 ![Install4j Logo](https://www.ej-technologies.com/images/product_banners/install4j_large.png)
+
+rgoodman
